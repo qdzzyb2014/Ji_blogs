@@ -2,7 +2,6 @@
 # coding=utf-8
 from flask import (abort, g,flash, Markup, redirect, render_template,request, Response, session, url_for)
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from markdown2 import markdown
 from form import LoginForm, EditForm
 from models import Entry, User
 from datetime import datetime, timedelta
@@ -64,7 +63,7 @@ def publish():
     form = EditForm()
     if form.validate_on_submit():
         entry = Entry(title = form.title.data, 
-                     content = markdown(form.content.data),
+                     content = form.content.data,
                      pub_date = datetime.now())
         try:
             db.session.add(entry)

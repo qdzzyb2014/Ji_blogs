@@ -4,7 +4,7 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
-from flask.ext.admin import Admin
+from flask.ext.markdown import Markdown
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -12,7 +12,6 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 lm = LoginManager()
 lm.setup_app(app)
-admin = Admin(app)
-
+Markdown(app,output_format='html5')
 
 from app import views, models
