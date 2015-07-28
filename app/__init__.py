@@ -12,6 +12,6 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 lm = LoginManager()
 lm.setup_app(app)
-Markdown(app,output_format='html5')
+Markdown(app)
 
 from app import views, models
