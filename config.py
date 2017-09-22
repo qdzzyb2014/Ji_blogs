@@ -10,6 +10,6 @@ CSRF_ENABLED = True
 SUPER_USER = "qdzzyb"
 SECRET_KEY = "wlj199272"
 #init database
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+USER_NAME = 'neal'
+SQLALCHEMY_DATABASE_URI = f'postgresql://{USER_NAME}@localhost/blog'
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
-
